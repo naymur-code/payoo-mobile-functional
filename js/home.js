@@ -1,15 +1,28 @@
-// add money feature
+// function to get input value number
+function getInputValueNumber(id) {
+  const inputField = document.getElementById(id);
+  const inputValue = parseInt(inputField.value);
+  return inputValue;
+}
 
+//  function input value
+function getInputValue(id) {
+  const inputField = document.getElementById(id);
+  const inputValue = inputField.value;
+  return inputValue;
+}
+
+// add money feature
 document
   .getElementById("add-money")
   .addEventListener("click", function (event) {
     event.preventDefault();
     const balance = parseInt(document.getElementById("balance").innerText);
 
-    const bank = document.getElementById("bank").value;
-    const account = document.getElementById("account-number").value;
-    const addAmount = parseInt(document.getElementById("add-amount").value);
-    const pinNumber = parseInt(document.getElementById("pin").value);
+    const bank = getInputValue("bank");
+    const account = getInputValue("account-number");
+    const addAmount = getInputValueNumber("add-amount");
+    const pinNumber = getInputValueNumber("pin");
 
     // validation
     if (account.length < 11) {
@@ -30,9 +43,9 @@ document
 //   cash out feature
 document.getElementById("withdraw").addEventListener("click", function (event) {
   event.preventDefault();
-  const account = document.getElementById("account").value;
-  const amount = parseInt(document.getElementById("amount").value);
-  const pin = parseInt(document.getElementById("cash-out-pin").value);
+  const account = getInputValue("account");
+  const amount = getInputValueNumber("amount");
+  const pin = getInputValueNumber("cash-out-pin");
   const balance = parseInt(document.getElementById("balance").innerText);
   // validation
   if (account.length < 11) {
@@ -40,7 +53,7 @@ document.getElementById("withdraw").addEventListener("click", function (event) {
     return;
   }
 
-  if (pin === 1234) {
+  if (pin !== 1234) {
     alert("invalid pin!");
     return;
   }
