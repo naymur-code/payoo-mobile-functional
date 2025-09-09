@@ -12,12 +12,35 @@ function getInputValue(id) {
   return inputValue;
 }
 
+// function to get innertext
+function getInnerText(id) {
+  const element = document.getElementById(id);
+  const elementValue = element.innerText;
+  const elementValueNum = parseInt(elementValue);
+  return elementValueNum;
+}
+
+// function to set balance innertext
+function setInnerText(value) {
+  const balance = document.getElementById("balance");
+  balance.innerText = value;
+}
+
+// function toggle
+function handleToggle(id) {
+  const forms = document.getElementsByClassName("form");
+  for (const form of forms) {
+    form.style.display = "none";
+  }
+  document.getElementById(id).style.display = "block";
+}
+
 // add money feature
 document
   .getElementById("add-money")
   .addEventListener("click", function (event) {
     event.preventDefault();
-    const balance = parseInt(document.getElementById("balance").innerText);
+    const balance = getInnerText("balance");
 
     const bank = getInputValue("bank");
     const account = getInputValue("account-number");
@@ -37,7 +60,7 @@ document
 
     const totalBalance = balance + addAmount;
 
-    document.getElementById("balance").innerText = totalBalance;
+    setInnerText(totalBalance);
   });
 
 //   cash out feature
@@ -46,7 +69,7 @@ document.getElementById("withdraw").addEventListener("click", function (event) {
   const account = getInputValue("account");
   const amount = getInputValueNumber("amount");
   const pin = getInputValueNumber("cash-out-pin");
-  const balance = parseInt(document.getElementById("balance").innerText);
+  const balance = getInnerText("balance");
   // validation
   if (account.length < 11) {
     alert("invalid account number!");
@@ -59,19 +82,19 @@ document.getElementById("withdraw").addEventListener("click", function (event) {
   }
 
   const totalBalance = balance - amount;
-  document.getElementById("balance").innerText = totalBalance;
+  setInnerText(totalBalance);
 });
 
 //   toggling feature
-const addMoneyForm = document.getElementById("add-money-form");
-const cashOutForm = document.getElementById("cash-out-form");
+const forms = document.getElementsByClassName("form");
+for (const form of forms) {
+  form.style.display = "none";
+}
 
 document.getElementById("add-money-btn").addEventListener("click", function () {
-  cashOutForm.style.display = "none";
-  addMoneyForm.style.display = "block";
+  handleToggle("add-money-form");
 });
 
 document.getElementById("cash-out-btn").addEventListener("click", function () {
-  cashOutForm.style.display = "block";
-  addMoneyForm.style.display = "none";
+  handleToggle("cash-out-form");
 });
