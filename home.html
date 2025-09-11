@@ -42,12 +42,12 @@
 
         <div class="grid grid-cols-3 gap-4 pb-5">
             <div id="add-money-btn"
-                class="border p-5 rounded-lg border-gray-300 flex flex-col gap-2 justify-between items-center">
+                class=" form-btn border p-5 rounded-lg border-gray-300 flex flex-col gap-2 justify-between items-center ">
                 <img src="./assets/wallet1.png" alt="" width="24px">
                 <h5 class="font-semibold text-sm">Add Money</h5>
             </div>
             <div id="cash-out-btn"
-                class="border p-5 rounded-lg border-gray-300 flex flex-col gap-2 justify-between items-center">
+                class="form-btn border p-5 rounded-lg border-gray-300 flex flex-col gap-2 justify-between items-center">
                 <img src="./assets/send1.png" alt="" width="24px">
                 <h5 class="font-semibold text-sm">Cashout</h5>
             </div>
@@ -63,7 +63,7 @@
                 <img src="./assets/purse1.png" alt="" width="24px">
                 <h5 class="font-semibold text-sm">Pay Bill</h5>
             </div>
-            <div class="border p-5 rounded-lg border-gray-300 flex flex-col gap-2 justify-between items-center">
+            <div id="transction-btn" class="form-btn border p-5 rounded-lg border-gray-300 flex flex-col gap-2 justify-between items-center">
                 <img src="./assets/transaction1.png" alt="" width="24px">
                 <h5 class="font-semibold text-sm">Transactions</h5>
             </div>
@@ -135,6 +135,48 @@
                         class="btn btn-primary w-full my-4 rounded-3xl bg-[#0874F2] border-none">withdraw Money</button>
 
                 </form>
+            </div>
+            <!-- transaction form -->
+            <div class="form" id="transion-form" >
+               <div class="flex justify-between my-2 items-center">
+                 <h3 class="font-bold text-lg my-4">Transaction History</h3>
+                <p>View All</p>
+               </div>
+
+                <div class=" p-7 rounded-2xl flex justify-between">
+                    <div class="flex justify-between gap-4">
+                        <div class="border-1 rounded-full p-4 border-gray-200 bg-gray-100">
+                            <img src="./assets/purse1.png" alt="">
+                        </div>
+                        <div>
+                            <h2 class="font-bold text-gray-500">Electricity Bill</h2>
+                            <p>Today 01:44 AM</p>
+                        </div>
+                    </div>
+                    <div>
+                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                    </div>
+
+                
+
+                </div>
+                <div class=" p-7 rounded-2xl flex justify-between">
+                    <div class="flex justify-between gap-4">
+                        <div class="border-1 rounded-full p-4 border-gray-200 bg-gray-100">
+                            <img src="./assets/purse1.png" alt="">
+                        </div>
+                        <div>
+                            <h2 class="font-bold text-gray-500">Electricity Bill</h2>
+                            <p>Today 01:44 AM</p>
+                        </div>
+                    </div>
+                    <div>
+                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                    </div>
+
+                
+
+                </div>
             </div>
 
         </div>

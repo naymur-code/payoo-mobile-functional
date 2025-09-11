@@ -35,6 +35,18 @@ function handleToggle(id) {
   document.getElementById(id).style.display = "block";
 }
 
+// function active btn
+
+function activeBtn(id) {
+  const formBtn = document.getElementsByClassName("form-btn");
+  for (const btn of formBtn) {
+    btn.classList.remove("bg-gray-200", "border-green-600");
+  }
+  const addMoney = document.getElementById(id);
+  addMoney.classList.remove("bg-gray-300");
+  addMoney.classList.add("bg-gray-200", "border-green-600");
+}
+
 // add money feature
 document
   .getElementById("add-money")
@@ -85,16 +97,31 @@ document.getElementById("withdraw").addEventListener("click", function (event) {
   setInnerText(totalBalance);
 });
 
-//   toggling feature
+// transction feature
+
+// toggling feature
 const forms = document.getElementsByClassName("form");
 for (const form of forms) {
   form.style.display = "none";
 }
 
+// handle btn
+
 document.getElementById("add-money-btn").addEventListener("click", function () {
   handleToggle("add-money-form");
+
+  activeBtn("add-money-btn");
 });
 
 document.getElementById("cash-out-btn").addEventListener("click", function () {
   handleToggle("cash-out-form");
+
+  activeBtn("cash-out-btn");
 });
+
+document
+  .getElementById("transction-btn")
+  .addEventListener("click", function () {
+    handleToggle("transion-form");
+    activeBtn("transction-btn");
+  });
