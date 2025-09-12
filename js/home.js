@@ -1,3 +1,5 @@
+const transctionData = [];
+
 // function to get input value number
 function getInputValueNumber(id) {
   const inputField = document.getElementById(id);
@@ -73,6 +75,13 @@ document
     const totalBalance = balance + addAmount;
 
     setInnerText(totalBalance);
+
+    const data = {
+      name: "Add Money",
+      date: new Date().toLocaleTimeString(),
+    };
+
+    transctionData.push(data);
   });
 
 //   cash out feature
@@ -95,6 +104,12 @@ document.getElementById("withdraw").addEventListener("click", function (event) {
 
   const totalBalance = balance - amount;
   setInnerText(totalBalance);
+  const data = {
+    name: "Cash Out",
+    date: new Date().toLocaleTimeString(),
+  };
+
+  transctionData.push(data);
 });
 
 // transction feature
@@ -124,4 +139,29 @@ document
   .addEventListener("click", function () {
     handleToggle("transion-form");
     activeBtn("transction-btn");
+
+    const container = document.getElementById("transaction-container");
+    container.innerHTML="";
+    
+    for (const data of transctionData) {
+      const newElement = document.createElement("div");
+      newElement.innerHTML = `
+                      <div class="p-7 rounded-2xl flex justify-between">
+                    <div class="flex justify-between gap-4">
+                        <div class="border-1 rounded-full p-4 border-gray-200 bg-gray-100">
+                            <img src="./assets/purse1.png" alt="">
+                        </div>
+                        <div>
+                            <h2 class="font-bold text-gray-500">${data.name}</h2>
+                            <p>Today ${data?.date}</p>
+                        </div>
+                    </div>
+                    <div>
+                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                    </div>
+
+                </div>
+      `;
+      container.appendChild(newElement);
+    }
   });
